@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Ateşböceği",
+    "artist": "Sezen Aksu",
+    "genre": "Pop",
+    "keywords": ["aşk", "duygusal", "Türkçe pop", "klasik"],
+    "filepath": "songs/atesbocegi.mp3"
+  },
+  {
+    "title": "Gel Ey Seher",
+    "artist": "Azerin",
+    "genre": "Etink Müzik",
+    "keywords": ["Azeri", "etnik", "destansı", "tarihi"],
+    "filepath": "songs/gel_ey_seher.mp3"
+  },
+  {
+    "title": "Yine De Şahlanıyor",
+    "artist": "Neşet Ertaş",
+    "genre": "Halk Müziği",
+    "keywords": ["türkü", "bağlama", "bozlak", "neşet ertaş", "Türk halk"],
+    "filepath": "songs/yine_de_sahlaniyor.mp3"
+  },
+  {
+    "title": "Imagine",
+    "artist": "John Lennon",
+    "genre": "Soft Rock",
+    "keywords": ["barış", "huzur", "klasik", "evrensel"],
+    "filepath": "songs/imagine.mp3"
+  },
+  {
+    "title": "Bohemian Rhapsody",
+    "artist": "Queen",
+    "genre": "Rock",
+    "keywords": ["rock", "klasik", "destansı", "opera", "queen"],
+    "filepath": "songs/bohemian_rhapsody.mp3"
+  }
+]
