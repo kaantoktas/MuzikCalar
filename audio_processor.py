@@ -19,7 +19,6 @@ class AudioProcessor:
         """
         
         .
-        gain_db: Bas frekanslarına uygulanacak desibel cinsinden kazanç.
         """
         try:
             audio = AudioSegment.from_file(input_filepath)
