@@ -16,10 +16,7 @@ class AudioProcessor:
         return temp_filepath
 
     def apply_bass_boost(self, input_filepath, output_filepath=None, gain_db=6):
-        """
-        
-        .
-        """
+       
         try:
             audio = AudioSegment.from_file(input_filepath)
             
