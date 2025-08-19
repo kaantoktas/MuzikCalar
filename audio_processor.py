@@ -32,12 +32,7 @@ class AudioProcessor:
             return None
 
     def apply_treble_boost(self, input_filepath, output_filepath=None, gain_db=6):
-        """
-       
-        input_filepath: Giriş ses dosyasının yolu.
-        output_filepath: Çıkış ses dosyasının kaydedileceği yol. None ise geçici dosya oluşturulur.
-        gain_db: Tiz frekanslarına uygulanacak desibel cinsinden kazanç.
-        """
+    
         try:
             audio = AudioSegment.from_file(input_filepath)
             
