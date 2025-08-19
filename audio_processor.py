@@ -50,10 +50,7 @@ class AudioProcessor:
             return None
 
     def reset_audio(self, input_filepath, output_filepath=None):
-        """
-        Sesi orijinal haline döndürür (efektleri kaldırır).
-        Aslında sadece orijinal dosyayı yeniden döndürür veya kopyalar.
-        """
+    
         if output_filepath is None:
             output_filepath = self._get_temp_filepath(input_filepath, "original")
         
@@ -67,9 +64,7 @@ class AudioProcessor:
             return None
 
     def clean_temp_files(self):
-        """
-        Oluşturulan tüm geçici ses dosyalarını siler.
-        """
+        
         for filepath in self.temp_files:
             try:
                 if os.path.exists(filepath):
