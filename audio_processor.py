@@ -19,8 +19,6 @@ class AudioProcessor:
        
         try:
             audio = AudioSegment.from_file(input_filepath)
-            
-    
             bass_boosted_audio = audio.low_pass_filter(100).apply_gain(gain_db) + audio.high_pass_filter(100)
 
             if output_filepath is None:
