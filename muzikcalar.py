@@ -108,11 +108,10 @@ class MusicPlayerApp:
         self.check_song_end_event()
 
     def set_volume(self, val):
-        """Ses seviyesini ayarlar."""
+       
         pygame.mixer.music.set_volume(float(val))
 
     def load_songs_from_folder(self):
-        """Kullanıcının seçtiği klasörden müzik dosyalarını yükler."""
         folder_selected = filedialog.askdirectory()
         if folder_selected:
             self.current_playlist = []
@@ -133,7 +132,6 @@ class MusicPlayerApp:
                 messagebox.showwarning("Uyarı", "Seçilen klasörde desteklenen formatta şarkı bulunamadı.")
 
     def play_song(self):
-        """Seçili şarkıyı veya mevcut şarkıyı çalmaya başlar."""
         if not self.current_playlist:
             messagebox.showwarning("Uyarı", "Lütfen önce bir çalma listesi yükleyin.")
             return
@@ -159,7 +157,6 @@ class MusicPlayerApp:
 
 
     def _load_and_play_song(self, filepath):
-        """Verilen yoldaki şarkıyı yükler ve çalar."""
         try:
             pygame.mixer.music.load(filepath)
             pygame.mixer.music.play()
@@ -172,7 +169,6 @@ class MusicPlayerApp:
             self.stop_song()
 
     def play_selected_song(self, event=None):
-        """Çalma listesinden çift tıklanan şarkıyı çalar."""
         if not self.playlist_box.curselection():
             return
         self.current_song_index = self.playlist_box.curselection()[0]
@@ -181,7 +177,6 @@ class MusicPlayerApp:
         self.is_paused = False
 
     def pause_song(self):
-        """Çalan şarkıyı duraklatır/devam ettirir."""
         if self.is_playing:
             pygame.mixer.music.pause()
             self.is_paused = True
@@ -195,7 +190,6 @@ class MusicPlayerApp:
 
 
     def stop_song(self):
-        """Çalan şarkıyı durdurur."""
         pygame.mixer.music.stop()
         self.is_playing = False
         self.is_paused = False
@@ -203,7 +197,6 @@ class MusicPlayerApp:
         self.audio_processor.clean_temp_files() 
 
     def play_next(self):
-        """Çalma listesindeki sonraki şarkıyı çalar."""
         if not self.current_playlist:
             return
         self.current_song_index = (self.current_song_index + 1) % len(self.current_playlist)
@@ -215,7 +208,6 @@ class MusicPlayerApp:
         self.playlist_box.see(self.current_song_index)
 
     def play_previous(self):
-        """Çalma listesindeki önceki şarkıyı çalar."""
         if not self.current_playlist:
             return
         self.current_song_index = (self.current_song_index - 1 + len(self.current_playlist)) % len(self.current_playlist)
@@ -227,13 +219,11 @@ class MusicPlayerApp:
         self.playlist_box.see(self.current_song_index)
 
     def check_song_end_event(self):
-        """Şarkı bitiş olayını kontrol eder ve sonraki şarkıyı otomatik olarak çalar."""
         if self.is_playing and not pygame.mixer.music.get_busy() and not self.is_paused:
             self.play_next()
         self.master.after(1000, self.check_song_end_event) 
 
     def save_playlist(self):
-        """Mevcut çalma listesini bir dosyaya kaydeder."""
         if not self.current_playlist:
             messagebox.showwarning("Uyarı", "Kaydedilecek bir çalma listesi yok.")
             return
@@ -249,7 +239,6 @@ class MusicPlayerApp:
                 messagebox.showerror("Hata", f"Çalma listesi kaydedilirken hata oluştu: {e}")
 
     def load_playlist(self):
-        """Kaydedilmiş bir çalma listesini yükler."""
         file_path = filedialog.askopenfilename(defaultextension=".json", filetypes=[("JSON Dosyaları", "*.json"), ("Tüm Dosyalar", "*.*")],
                                                initialdir="./playlists") 
         if file_path:
@@ -276,7 +265,6 @@ class MusicPlayerApp:
                 messagebox.showerror("Hata", f"Çalma listesi yüklenirken hata oluştu: {e}")
 
     def apply_eq_preset(self, preset_name):
-        """Seçilen ekolayzır ön ayarını uygular."""
         if not self.current_playlist or self.current_song_index == -1:
             messagebox.showwarning("Uyarı", "Lütfen önce çalacak bir şarkı seçin veya bir şarkı çalın.")
             return
@@ -305,7 +293,6 @@ class MusicPlayerApp:
         
 
     def get_recommendations(self):
-        """Kullanıcının girdiği şarkıya göre öneriler alır ve gösterir."""
         user_fav_song = self.rec_entry.get().strip()
         if not user_fav_song:
             messagebox.showwarning("Uyarı", "Lütfen öneri almak için bir şarkı adı girin.")
