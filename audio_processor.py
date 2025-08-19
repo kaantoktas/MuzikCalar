@@ -19,7 +19,6 @@ class AudioProcessor:
         """
         
         .
-        output_filepath: Çıkış ses dosyasının kaydedileceği yol. None ise geçici dosya oluşturulur.
         gain_db: Bas frekanslarına uygulanacak desibel cinsinden kazanç.
         """
         try:
