@@ -14,7 +14,6 @@ class RecommendationEngine:
         self._load_and_process_data()
 
     def _load_and_process_data(self):
-        """Şarkı verilerini yükler ve TF-IDF matrisini oluşturur."""
         if not os.path.exists(self.song_data_path):
             print(f"Hata: Şarkı veri dosyası bulunamadı: {self.song_data_path}")
             self.df = pd.DataFrame() 
@@ -50,9 +49,7 @@ class RecommendationEngine:
             self.df = pd.DataFrame()
 
     def get_song_recommendations(self, user_song_title, num_recommendations=5):
-        """
-        Kullanıcının tercih ettiği şarkıya benzer şarkılar önerir.
-        """
+       
         if self.df.empty:
             print("Öneri yapılamıyor: Şarkı verileri yüklenemedi veya boş.")
             return []
