@@ -9,7 +9,7 @@ class AudioProcessor:
         self.temp_files = [] 
 
     def _get_temp_filepath(self, original_filename, suffix):
-        """Geçici dosya yolu oluşturur."""
+       
         name, ext = os.path.splitext(os.path.basename(original_filename))
         temp_filepath = os.path.join(self.temp_dir, f"{name}_{suffix}{ext}")
         self.temp_files.append(temp_filepath)
