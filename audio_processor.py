@@ -17,7 +17,7 @@ class AudioProcessor:
 
     def apply_bass_boost(self, input_filepath, output_filepath=None, gain_db=6):
         """
-        Sese bas güçlendirme efekti uygular.
+        
         input_filepath: Giriş ses dosyasının yolu.
         output_filepath: Çıkış ses dosyasının kaydedileceği yol. None ise geçici dosya oluşturulur.
         gain_db: Bas frekanslarına uygulanacak desibel cinsinden kazanç.
